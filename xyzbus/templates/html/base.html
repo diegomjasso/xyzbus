@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>
+			Dasboard
+		</title>
+		{% load static %}
+		<link rel="stylesheet" type="text/css" href="{% static "semantic/dist/semantic.min.css" %}">
+		<script src="{% static "semantic/dist/semantic.min.js" %}"></script>
+	</head>
+	<body>
+		{%	include "html/header.html"  %}
+		{% block content %}{% endblock %}
+		{%	include "html/footer.html"  %}
+	</body>
+</html>
