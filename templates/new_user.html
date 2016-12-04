@@ -64,14 +64,14 @@
     <h2 class="ui teal image header">
       <!-- <img src="assets/images/logo.png" class="image"> -->
       <div class="content">
-        Log-in to your account
+        New User
       </div>
     </h2>
     <form class="ui large form" method="post">
       <div class="ui stacked segment">
 				{% csrf_token %}
 				{% include "includes/_forms.html" with form=form only %}
-        <div class="ui fluid large teal submit button">Login</div>
+        <div class="ui fluid large teal submit button">Create</div>
       </div>
 
       <div class="ui error message"></div>
@@ -79,7 +79,7 @@
     </form>
 
     <div class="ui message">
-      New to us? <a href="{% url 'new_user' %}">Sign Up</a>
+      I have already <a href="{% url 'login' %}"> account </a>
     </div>
   </div>
 </div>
