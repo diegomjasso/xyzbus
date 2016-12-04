@@ -14,11 +14,13 @@
 				<i class="mail icon"></i>
 			</a>
 			<div class="ui simple dropdown item">
+				{{ user.username }}
 				<i class="dropdown icon"></i>
 				<div class="menu">
 					<a class="item"><i class="edit icon"></i> Edit Profile</a>
 					<a class="item"><i class="globe icon"></i> Choose Language</a>
 					<a class="item"><i class="settings icon"></i> Account Settings</a>
+					<a href="{% url 'logout' %}" class="item"><i class="sign out icon"></i> Logout</a>
 				</div>
 			</div>
 			<div class="right item">
