@@ -1,0 +1,13 @@
+{{ form.non_field_errors }}
+
+{% for field in form %}
+	<div class="field" >
+			<div class="ui left icon input">
+			<i class="user icon"></i>
+			{% if field.errors %}
+				{{ field.errors }}
+			{% endif %}
+			{{ field }}
+		</div>
+	</div>
+{%  endfor %}
