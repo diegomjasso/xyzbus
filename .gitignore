@@ -1,2 +1,5 @@
 #Ignored Files
 static/assets/templates/node_modules/*
+dashboard/__pycache__/*
+dashboard/migrations/__pycache__/*
+xyzbus/__pycache__/*
