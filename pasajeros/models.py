@@ -40,9 +40,15 @@ class Movimientos(models.Model):
 	class Meta:
 		verbose_name_plural = 'Movimientos'
 
+	MOVIMIENTOS = (
+			('1', 'Ingreso'),
+			('2', 'Descuento'),
+			('3', 'Abono')
+		)
+
 	id = models.AutoField(primary_key = True)
 	user = models.OneToOneField(User)
-	tipo_movimiento = models.CharField(max_length = 140)
+	tipo_movimiento = models.CharField(max_length = 140, choices=MOVIMIENTOS)
 	saldo_anterior = models.DecimalField(max_digits = 10, decimal_places = 2)
 	saldo_despues = models.DecimalField( max_digits = 10, decimal_places = 2)
 	saldo_movimiento = models.DecimalField(max_digits = 10, decimal_places = 2)
