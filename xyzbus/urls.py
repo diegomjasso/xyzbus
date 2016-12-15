@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from jet.dashboard.dashboard_modules import google_analytics_views
 from django.conf import settings
 from django.conf.urls import url,	include
 from django.conf.urls.static import static
@@ -23,7 +24,9 @@ from .views import CreateUserClass, error_404, home, LoginClass, logout
 urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^dashboard/',	include('dashboard.urls')),
-    url(r'^admin/',	admin.site.urls),
+    url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^new_user/$', CreateUserClass.as_view(), name = 'new_user'),
     url(r'^login/$', LoginClass.as_view(), name = 'login'),
     url(r'^logout/$', logout, name = 'logout'),
