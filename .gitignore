@@ -1,5 +1,7 @@
 #Ignored Files
 static/assets/templates/node_modules/*
 dashboard/__pycache__/*
+pasajeros/__pycache__/*
+camiones/__pycache__/*
 dashboard/migrations/__pycache__/*
 xyzbus/__pycache__/*
