@@ -21,6 +21,8 @@ from .views import CreateUserClass, error_404, home, LoginClass, logout
 
 
 urlpatterns = [
+    url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     url(r'^$', home, name='home'),
     url(r'^dashboard/',	include('dashboard.urls')),
     url(r'^admin/',	admin.site.urls),
