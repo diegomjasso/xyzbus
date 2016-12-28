@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'pasajeros',
     'camiones',
+    'clientes',
     'xyzbus',
 ]
 

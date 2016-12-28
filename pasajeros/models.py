@@ -1,7 +1,4 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
@@ -17,7 +14,7 @@ class Perfil(models.Model):
 	ciudad = models.CharField(max_length = 140, default = 'Aguascalientes')
 	estado = models.CharField(max_length = 140, default ='Aguascalientes')
 	cp = models.IntegerField(default = 20200)
-	edad = models.IntegerField()
+	fecha_de_nacimiento = models.DateTimeField(default = timezone.now)
 	telefono = models.CharField(max_length = 10)
 	foto = models.ImageField(upload_to = 'static/assets/images/user_photos', blank = True)
 
@@ -34,7 +31,7 @@ class Cuentas(models.Model):
 	saldo = models.FloatField()
 
 	def __str__(self):
-		return self.user.username
+		return self.no_cuenta
 
 class Movimientos(models.Model):
 	class Meta:
