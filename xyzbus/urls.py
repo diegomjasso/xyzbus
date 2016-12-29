@@ -2,7 +2,7 @@
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
-Examples:
+Exampl-es:
 Function views
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
@@ -18,13 +18,7 @@ from django.conf import settings
 from django.conf.urls import url,	include
 from django.conf.urls.static import static
 from django.contrib import admin
-from rest_framework import routers
 from .views import CreateUserClass, error_404, home, LoginClass, logout
-from camiones.viewsets import RutasViewSet
-
-router = routers.DefaultRouter()
-router.register(r'rutas', RutasViewSet)
-
 
 urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
@@ -37,7 +31,7 @@ urlpatterns = [
     url(r'^new_user/$', CreateUserClass.as_view(), name = 'new_user'),
     url(r'^login/$', LoginClass.as_view(), name = 'login'),
     url(r'^logout/$', logout, name = 'logout'),
-    url(r'^api/', include(router.urls)),
+    url(r'^api/', include('xyzbus.urls_api')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
