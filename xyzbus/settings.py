@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'clientes',
     'xyzbus',
     'geoposition',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

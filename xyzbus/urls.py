@@ -18,7 +18,12 @@ from django.conf import settings
 from django.conf.urls import url,	include
 from django.conf.urls.static import static
 from django.contrib import admin
+from rest_framework import routers
 from .views import CreateUserClass, error_404, home, LoginClass, logout
+from camiones.viewsets import RutasViewSet
+
+router = routers.DefaultRouter()
+router.register(r'rutas', RutasViewSet)
 
 
 urlpatterns = [
@@ -32,7 +37,8 @@ urlpatterns = [
     url(r'^new_user/$', CreateUserClass.as_view(), name = 'new_user'),
     url(r'^login/$', LoginClass.as_view(), name = 'login'),
     url(r'^logout/$', logout, name = 'logout'),
-
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 handler404 = error_404
