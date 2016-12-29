@@ -5,3 +5,5 @@ pasajeros/__pycache__/*
 camiones/__pycache__/*
 dashboard/migrations/__pycache__/*
 xyzbus/__pycache__/*
+*.pyc
+db.sqlite3
