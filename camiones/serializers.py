@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Rutas
+from .models import Rutas, Corridas
 
 class RutasSerializer(serializers.ModelSerializer):
 	ruta = serializers.StringRelatedField()
@@ -7,4 +7,10 @@ class RutasSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Rutas
+		fields = '__all__'
+		read_only_fields = ('*',)
+
+class CorridasSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Corridas
 		fields = '__all__'
