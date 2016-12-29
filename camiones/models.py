@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from clientes.models import Conductores
 from django.utils	import timezone
+from geoposition.fields import GeopositionField
 
 # Create your models here.
 class Catalogo_rutas(models.Model):
@@ -23,9 +24,13 @@ class Rutas(models.Model):
 	ruta = models.ForeignKey(Catalogo_rutas,on_delete = models.CASCADE)
 	no_camion = models.IntegerField()
 	conductor =	models.ForeignKey(Conductores,on_delete = models.CASCADE)
+	punto_inicio = GeopositionField(blank=True)
+	punto_final = GeopositionField(blank=True)
 
 	def __str__(self):
-		return ruta.ruta
+		return str(self.ruta)
+
+
 
 class Rutas_favoritas(models.Model):
 	class Meta:
@@ -37,4 +42,14 @@ class Rutas_favoritas(models.Model):
 
 	def __str__(self):
 		return self.user.first_name + ' ' + self.user.last_name
+
+class Corridas(models.Model):
+	class Meta:
+		verbose_name_plural = 'Corridas'
+
+	id = models.AutoField(primary_key = True)
+	ruta = models.ForeignKey(Rutas, on_delete = models.CASCADE)
+	fecha_inicio = models.DateTimeField(default = timezone.now)
+	fecha_final = models.DateTimeField()
+	status = models.IntegerField()
 		

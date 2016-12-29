@@ -39,12 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'dashboard',
     'dashboard.apps.DashboardConfig',
     'pasajeros',
     'camiones',
     'clientes',
     'xyzbus',
+    'geoposition',
 ]
 
 MIDDLEWARE = [
@@ -167,3 +167,5 @@ JET_THEMES = [
         'title': 'Light Gray'
     }
 ]
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyDXN8tWeYOQKcn20Ata9-51ABcHWbrLZZw'
