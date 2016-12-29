@@ -8,7 +8,6 @@ class RutasSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Rutas
 		fields = '__all__'
-		read_only_fields = ('*',)
 
 class CorridasSerializer(serializers.ModelSerializer):
 	class Meta:

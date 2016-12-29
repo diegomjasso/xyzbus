@@ -3,10 +3,10 @@ from .serializers import RutasSerializer, CorridasSerializer
 from .models import Rutas, Corridas
 
 
-class RutasViewSet(viewsets.ModelViewSet):
+class RutasViewSet(viewsets.ReadOnlyModelViewSet):
   queryset = Rutas.objects.all()
   serializer_class = RutasSerializer
 
-class CorridasViewSet(viewsets.ModelViewSet):
+class CorridasViewSet(viewsets.ReadOnlyModelViewSet):
 	queryset = Corridas.objects.all()
 	serializer_class = CorridasSerializer
