@@ -12,6 +12,8 @@ class Catalogo_rutas(models.Model):
 
 	id = models.AutoField(primary_key = True)
 	ruta = models.CharField(max_length = 50)
+	punto_inicio = GeopositionField(blank=True)
+	punto_final = GeopositionField(blank=True)
 
 	def __str__(self):
 		return self.ruta
@@ -24,8 +26,6 @@ class Rutas(models.Model):
 	ruta = models.ForeignKey(Catalogo_rutas,on_delete = models.CASCADE)
 	no_camion = models.IntegerField()
 	conductor =	models.ForeignKey(Conductores,on_delete = models.CASCADE)
-	punto_inicio = GeopositionField(blank=True)
-	punto_final = GeopositionField(blank=True)
 
 	def __str__(self):
 		return str(self.ruta)
