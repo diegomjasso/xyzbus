@@ -29,7 +29,6 @@ var dashboard = {
 		var menuHeight	=	$("#menu").height(),
 			windowsHeight = $( window ).height(),
 			finalHeight = windowsHeight - menuHeight;
-			console.log(	finalHeight);
 		$("#map").css(	"height",	finalHeight);
 	}
 };

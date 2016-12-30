@@ -10,6 +10,10 @@ $( document ).ready(function() {
 		dashboard.init_map();
 		dashboard.fixMapHeiight();
 	}, 200);
+
+	$('#editProfile').click(function () {
+		$('.ui.modal').modal('show');
+	}); 
 });
 
 $( window ).resize(	function ()	{
