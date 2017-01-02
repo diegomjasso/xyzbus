@@ -1,0 +1,25 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+
+	<div class="ui center aligned basic segment">
+			<div class="ui small rounded image">
+			  <img src="/{{user.perfil.foto}} ">
+			</div>
+	</div>
+
+	<h4 class="ui horizontal divider header">
+	  <i class="tag icon"></i>
+	  Cuenta {{ user.username }}
+	</h4>
+
+	<div class="ui center container">
+		<form class='ui equal width form' method="post" action="">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button class="ui green button" type="submit">Actualizar</button>
+		</form>
+	</div>
+
+
+{% endblock %}

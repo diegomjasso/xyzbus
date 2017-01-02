@@ -9,7 +9,7 @@
 				{{ user.username }}
 				<i class="dropdown icon"></i>
 				<div class="menu">
-					<a class="item"><i class="settings icon"></i>Ajustes de Cuenta</a>
+					<a href="{% url 'pasajeros:ajustes_cuenta' %}" class="item"><i class="settings icon"></i>Ajustes de Cuenta</a>
 					<a href="{% url 'pasajeros:edit_password' %}" class="item"><i class="lock icon"></i> Cambiar Contraseña</a>
 					<a href="{% url 'pasajeros:edit_perfil' %}" class="item"><i class="edit icon"></i> Editar Perfil</a>	
 					<a href="{% url 'logout' %}" class="item"><i class="sign out icon"></i> Salir</a>

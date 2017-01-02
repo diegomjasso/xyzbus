@@ -1,7 +1,7 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-
 
 # Create your models here.
 class Perfil(models.Model):
@@ -29,6 +29,10 @@ class Cuentas(models.Model):
 	user = models.OneToOneField(User)
 	no_cuenta = models.CharField(max_length = 50)
 	saldo = models.FloatField()
+	no_tarjeta = models.CharField(max_length = 20)
+	cvc = models.IntegerField()
+	mes_expiracion = models.CharField(max_length = 10)
+	año = models.IntegerField()
 
 	def __str__(self):
 		return self.no_cuenta

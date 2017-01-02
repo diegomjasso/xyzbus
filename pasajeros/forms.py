@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.contrib.auth.models import User
-from .models import Perfil
+from .models import Cuentas, Perfil
 
 """
 Constants
@@ -22,6 +22,10 @@ def must_be_gt(value_password):
 """
 Classes
 """
+class EditAjustesCuentaForm(forms.ModelForm):
+	class Meta:
+		model = Cuentas
+		exclude = ['user']
 
 class EditPerfilForm(forms.ModelForm):
 	class Meta:
