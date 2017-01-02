@@ -3,7 +3,7 @@
 {% block more_styles %}
 	<style type="text/css">
 	    body {
-	      background-color: #B5CC18;
+	      background-color: #21BA45;
 	    }
 	    body > .grid {
 	      height: 100%;
@@ -61,10 +61,10 @@
 {% block content %}
 <div class="ui middle aligned center aligned grid">
   <div class="column">
-    <h2 class="ui teal image header">
+    <h2 class="ui image header">
       <!-- <img src="assets/images/logo.png" class="image"> -->
-      <div class="content">
-        Log-in to your account
+      <div class="">
+        Inicia Sesion con tu cuenta
       </div>
     </h2>
     <form class="ui large form" method="post">
@@ -79,7 +79,7 @@
     </form>
 
     <div class="ui message">
-      New to us? <a href="{% url 'new_user' %}">Sign Up</a>
+      No tienes cuenta aun? <a href="{% url 'new_user' %}">Sign Up</a>
     </div>
   </div>
 </div>

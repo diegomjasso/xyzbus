@@ -1,0 +1,37 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<div id="map" style="height:0px;width:100%;">
+	<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+</div>
+
+{% load static %}
+
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Perfil {{ user.username }}
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="../{{user.perfil.foto}} ">
+    </div>
+    <div class="description">
+		<form method="post" action="">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input class="btn #9e9e9e grey" type="submit" value="actualizar">
+		</form>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Cancelar
+    </div>
+    <div class="ui positive right labeled icon button">
+      Guardar
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+{% endblock %}

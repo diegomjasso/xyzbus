@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{%	include "html/header.html"  %}
+
+	<div class="ui center aligned basic segment">
+			<div class="ui small rounded image">
+			  <img src="/{{user.perfil.foto}} ">
+			</div>
+	</div>
+
+	<h4 class="ui horizontal divider header">
+	  <i class="tag icon"></i>
+	  Perfil {{ user.username }}
+	</h4>
+
+	<div class="ui center container">
+		<form class='ui equal width form' method="post" action="">
+			{% csrf_token %}
+			{{form.user.first_name}}
+			<div class="fields" >
+				<div class="field">
+					<label for="">Dirección</label>
+					{{ form.direccion }}
+				</div>
+				<div class="field">
+					<label for="">Estado</label>
+					{{ form.estado }}
+				</div>
+			</div>
+
+			<div class="fields">
+				<div class="field">
+					<label for="">Fecha de Nacimiento</label>
+					{{ form.fecha_de_nacimiento }}
+				</div>
+
+				<div class="field">
+					<label for="">Telefono</label>
+					{{ form.telefono }}
+				</div>
+				<div class="field">
+					<label for="">C.P</label>
+					{{ form.cp }}
+				</div>
+			</div>
+			<div class="field">
+				<div class="six wide field">
+					<label for="">Foto</label>
+					{{ form.foto }}
+				</div>
+			</div>
+			<button class="ui green button" type="submit">Actualizar</button>
+		</form>
+	</div>
+
+
+{% endblock %}

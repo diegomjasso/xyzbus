@@ -1,25 +1,17 @@
 <header>
 	<div class="ui attached green stackable inverted menu" id="menu">
 		<div class="ui container">
-			<a class="item">
-				<i class="dashboard	 icon"></i> XYZBUS
-			</a>
-			<a class="item">
-				<i class="bus icon"></i>
-			</a>
-			<a class="item">
-				<i class="star layout icon"></i>
-			</a>
-			<a class="item">
-				<i class="mail icon"></i>
-			</a>
+			<a href="{% url 'dashboard:dashboard' %}" class="item"><i class="dashboard	icon"></i> XYZBUS</a>
+			<a class="item"><i class="bus icon"></i></a>
+			<a class="item"><i class="star layout icon"></i></a>
+			<a class="item"><i class="mail icon"></i></a>
 			<div class="ui simple dropdown item">
 				{{ user.username }}
 				<i class="dropdown icon"></i>
 				<div class="menu">
 					<a class="item"><i class="settings icon"></i>Ajustes de Cuenta</a>
-					<a class="item"><i class="lock icon"></i> Cambiar Contraseña</a>
-					<a id='editProfile' class="item"><i class="edit icon"></i> Editar Perfil</a>	
+					<a href="{% url 'pasajeros:edit_password' %}" class="item"><i class="lock icon"></i> Cambiar Contraseña</a>
+					<a href="{% url 'pasajeros:edit_perfil' %}" class="item"><i class="edit icon"></i> Editar Perfil</a>	
 					<a href="{% url 'logout' %}" class="item"><i class="sign out icon"></i> Salir</a>
 				</div>
 			</div>
@@ -31,3 +23,13 @@
 		</div>
 	</div>
 </header>
+
+{% if messages %}
+		<div class="center-align">
+			<ul class="messages">
+	    	{% for message in messages %}
+	    		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    	{% endfor %}
+			</ul>
+		</div>
+	{% endif %}

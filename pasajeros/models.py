@@ -14,7 +14,7 @@ class Perfil(models.Model):
 	ciudad = models.CharField(max_length = 140, default = 'Aguascalientes')
 	estado = models.CharField(max_length = 140, default ='Aguascalientes')
 	cp = models.IntegerField(default = 20200)
-	fecha_de_nacimiento = models.DateTimeField(default = timezone.now)
+	fecha_de_nacimiento = models.DateField(default = timezone.now)
 	telefono = models.CharField(max_length = 10)
 	foto = models.ImageField(upload_to = 'static/assets/images/user_photos', blank = True)
 

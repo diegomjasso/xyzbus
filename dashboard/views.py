@@ -12,6 +12,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 # Create your views here.
 class DashboardClass(LoginRequiredMixin, View):
 	login_url = 'login'
+
 	def get(self, request, *args, **kwargs):
 		return render( request, 'index.html', {})
 
