@@ -25,11 +25,15 @@
 </header>
 
 {% if messages %}
-		<div class="center-align">
-			<ul class="messages">
+	<div class="ui center container">
+		<div class="ui warning message top-space">
+			<i class="close icon"></i>
+			<ul class="header">
 	    	{% for message in messages %}
 	    		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
 	    	{% endfor %}
 			</ul>
 		</div>
-	{% endif %}
+	</div>
+
+{% endif %}
