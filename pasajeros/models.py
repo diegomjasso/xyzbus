@@ -24,15 +24,23 @@ class Perfil(models.Model):
 class Cuentas(models.Model):
 	class Meta:
 		verbose_name_plural = 'Cuentas'
+
+	TYPE_CARD = (
+			('1', 'American Express'),
+			('2', 'Visa'),
+			('3', 'Mastercard')
+		)
 	
 	id = models.AutoField(primary_key = True)
 	user = models.OneToOneField(User)
 	no_cuenta = models.CharField(max_length = 50)
 	saldo = models.FloatField()
+	tipo_tarjeta = models.CharField(max_length = 50, choices = TYPE_CARD)
 	no_tarjeta = models.CharField(max_length = 20)
 	cvc = models.IntegerField()
 	mes_expiracion = models.CharField(max_length = 10)
 	año = models.IntegerField()
+	fecha_alta = models.DateTimeField(default = timezone.now)
 
 	def __str__(self):
 		return self.no_cuenta

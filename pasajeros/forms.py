@@ -23,6 +23,10 @@ def must_be_gt(value_password):
 Classes
 """
 class EditAjustesCuentaForm(forms.ModelForm):
+	def __init__(self, *args, **kwargs):
+		super(EditAjustesCuentaForm, self).__init__(*args, **kwargs)
+		self.fields['tipo_tarjeta'].widget.attrs.update( {'class': 'ui selection dropdown', } )
+
 	class Meta:
 		model = Cuentas
 		exclude = ['user']
