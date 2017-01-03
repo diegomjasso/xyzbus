@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .serializers import RutasSerializer, CorridasSerializer
-from .models import Rutas, Corridas
+from .serializers import RutasSerializer, CorridasSerializer,	Catalogo_rutasSerializer
+from .models import Rutas, Corridas, Catalogo_rutas
 
 
 class RutasViewSet(viewsets.ReadOnlyModelViewSet):
@@ -10,3 +10,7 @@ class RutasViewSet(viewsets.ReadOnlyModelViewSet):
 class CorridasViewSet(viewsets.ReadOnlyModelViewSet):
 	queryset = Corridas.objects.all()
 	serializer_class = CorridasSerializer
+
+class Catalogo_rutasViewSet(viewsets.ReadOnlyModelViewSet):
+	queryset = Catalogo_rutas.objects.all()
+	serializer_class = Catalogo_rutasSerializer

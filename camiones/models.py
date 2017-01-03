@@ -16,7 +16,7 @@ class Catalogo_rutas(models.Model):
 	punto_final = GeopositionField(blank=True)
 
 	def __str__(self):
-		return self.ruta
+		return str(self.punto_inicio)	+ str(self.punto_final)
 
 class Rutas(models.Model):
 	class Meta:
