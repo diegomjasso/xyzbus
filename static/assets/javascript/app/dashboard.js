@@ -3,27 +3,34 @@ var dashboard = {
 		console.log("Entra al dashboard");
 	},
 	init_map: function ()	{
-		var myOptions = {
-			zoom:14,
-			center:	new google.maps.LatLng(21.8852562,-102.29156769999997),
-			mapTypeId:	google.maps.MapTypeId.ROADMAP};
-						map = new google.maps.Map(document.getElementById("map"), myOptions);
-						marker = new google.maps.Marker({
-								map: map,
-								position: new google.maps.LatLng(21.8852562, -102.29156769999997)
-							},
-							{
-								map: map,
-								position: new google.maps.LatLng(22.8852554	, -103.29156769999955)
-							}
+		var corrida_inicio = {lat: 21.9589651, lng: -102.290256};
+        var corrida_final = {lat: 21.8497435, lng: -102.30098720000001};
 
-						);
-			//			infowindow = new google.maps.InfoWindow({content:"Aguascalientes" });
-			//			google.maps.event.addListener(	marker, 
-			//											"click", function()	{
-			//											infowindow.open(map,marker);
-			//			});
-			//			infowindow.open(map,marker);
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: corrida_inicio,
+          scrollwheel: false,
+          zoom: 7
+        });
+
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+          map: map
+        });
+
+        // Set destination, origin and travel mode.
+        var request = {
+          destination: corrida_final,
+          origin: corrida_inicio,
+          travelMode: 'DRIVING'
+        };
+
+        // Pass the directions request to the directions service.
+        var directionsService = new google.maps.DirectionsService();
+        directionsService.route(request, function(response, status) {
+          if (status == 'OK') {
+            // Display the route on the map.
+            directionsDisplay.setDirections(response);
+          }
+        });
 	},
 	fixMapHeiight: function	()	{
 		var menuHeight	=	$("#menu").height(),
