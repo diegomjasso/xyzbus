@@ -1,8 +1,13 @@
 from rest_framework import serializers
 from .models import Rutas, Corridas, Catalogo_rutas
 
+class RutasByCatalogoSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Catalogo_rutas
+		fields = '__all__'
+
 class RutasSerializer(serializers.ModelSerializer):
-	ruta = serializers.StringRelatedField()
+	ruta = RutasByCatalogoSerializer()
 	conductor = serializers.StringRelatedField()
 
 	class Meta:
