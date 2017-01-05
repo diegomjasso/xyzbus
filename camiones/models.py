@@ -18,6 +18,25 @@ class Catalogo_rutas(models.Model):
 	def __str__(self):
 		return self.ruta
 
+class Coordenadas_rutas(models.Model):
+	class Meta:
+		verbose_name_plural = 'Coordenadas de las Rutas'
+
+	TYPE_SENTIDO = (
+			(1, 'Ida'),
+			(2, 'Vuelta')
+		)
+
+	id = models.AutoField(primary_key = True)
+	ruta = models.ForeignKey(Catalogo_rutas,on_delete = models.CASCADE)
+	coordenadas = GeopositionField(blank=True)
+	order = models.IntegerField()
+	sentido = models.IntegerField(default = 1,choices = TYPE_SENTIDO)
+
+	def __str__(self):
+		return str(self.coordenadas)
+
+
 class Rutas(models.Model):
 	class Meta:
 		verbose_name_plural = 'Rutas'
@@ -29,7 +48,6 @@ class Rutas(models.Model):
 
 	def __str__(self):
 		return str(self.ruta)
-
 
 
 class Rutas_favoritas(models.Model):
