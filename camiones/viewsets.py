@@ -13,6 +13,7 @@ class CorridasViewSet(viewsets.ReadOnlyModelViewSet):
 class Catalogo_rutasViewSet(viewsets.ReadOnlyModelViewSet):
 	queryset = Catalogo_rutas.objects.all()
 	serializer_class = Catalogo_rutasSerializer
+	filter_fields = ('ruta',)
 
 class Coordenas_rutasViewSet(viewsets.ReadOnlyModelViewSet):
 	queryset = Coordenadas_rutas.objects.all()
