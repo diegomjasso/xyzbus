@@ -18,3 +18,10 @@ class Catalogo_rutasViewSet(viewsets.ReadOnlyModelViewSet):
 class Coordenas_rutasViewSet(viewsets.ReadOnlyModelViewSet):
 	queryset = Coordenadas_rutas.objects.all()
 	serializer_class = Coordenadas_rutaSerializer
+
+
+	def get_queryset(self):
+		if  'catalogo_ruta_pk' in self.kwargs:
+			return self.queryset.filter(ruta = self.kwargs['catalogo_ruta_pk']).order_by('order')
+		else:
+			return self.queryset
