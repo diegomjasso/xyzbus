@@ -175,6 +175,7 @@ GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyDXN8tWeYOQKcn20Ata9-51ABcHWbrLZZw'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',

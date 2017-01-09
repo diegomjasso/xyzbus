@@ -65,9 +65,35 @@ class Corridas(models.Model):
 	class Meta:
 		verbose_name_plural = 'Corridas'
 
+	TYPE_SENTIDO = (
+			(1, 'Ida'),
+			(2, 'Vuelta')
+		)
+
+	TYPE_STATUS = (
+			(1,	'En proceso'),
+			(2,	'Finalizada'),
+			(3, 'En pausa'),
+			(4, 'Cancelado')
+		)
+
 	id = models.AutoField(primary_key = True)
 	ruta = models.ForeignKey(Rutas, on_delete = models.CASCADE)
 	fecha_inicio = models.DateTimeField(default = timezone.now)
-	fecha_final = models.DateTimeField()
-	status = models.IntegerField()
-		
+	fecha_final = models.DateTimeField(null = True, blank = True)
+	status = models.IntegerField(default = 1,choices = TYPE_STATUS)
+	sentido = models.IntegerField(default = 1,choices = TYPE_SENTIDO)
+
+	def __str__(self):
+		return str(self.ruta) + ' - ' + str(self.sentido) + ' - ' + str(self.status)
+
+class Coordenadas_corridas(models.Model):
+	class Meta:
+		verbose_name_plural = 'Coordenadas de Corridas'
+
+	id = models.AutoField(primary_key = True)
+	corrida = models.ForeignKey(Corridas, on_delete = models.CASCADE)
+	coordenadas = GeopositionField()
+
+	def __str__(self):
+		return str(self.coordenadas)
